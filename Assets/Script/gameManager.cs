@@ -13,7 +13,9 @@ public class gameManager : MonoBehaviour
     private int nbAst;
     private int nbStar;
    // private int nbBlackHole;
-    int limit;
+    double limit;
+    bool lv1;
+    int pScore;
     int limitStar;
     //int limitBlackHole;
     //public Text score;
@@ -22,6 +24,8 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        lv1 = true;
+        pScore = 0;
         limit = 15;
         limitStar = 60;
       // limitBlackHole = 2;
@@ -79,6 +83,22 @@ public class gameManager : MonoBehaviour
         {
             SpawnBlackHole();
         }*/
+
+        if (int.Parse(GameObject.FindWithTag("scoreLabel").GetComponent<Text>().text) == pScore+50)
+        {
+            if (lv1)
+            {
+                limit = limit * 1.5;
+                lv1 = false;
+                pScore = pScore + 50;
+            }
+        }
+
+        if (int.Parse(GameObject.FindWithTag("scoreLabel").GetComponent<Text>().text) == pScore + 1)
+        {
+            lv1 = true;
+
+        }
     }
 
     void ShootingStarGo()
