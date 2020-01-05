@@ -12,10 +12,10 @@ public class gameManager : MonoBehaviour
     private Vector3 tmpPos;
     private int nbAst;
     private int nbStar;
-    private int nbBlackHole;
+   // private int nbBlackHole;
     int limit;
     int limitStar;
-    int limitBlackHole;
+    //int limitBlackHole;
     //public Text score;
 
     float tmppos2;
@@ -24,18 +24,18 @@ public class gameManager : MonoBehaviour
     {
         limit = 15;
         limitStar = 60;
-        limitBlackHole = 2;
+      // limitBlackHole = 2;
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         //InvokeRepeating("spawnAsteroid", 2.0f, 1.0f);
         SpawnAsteroid();
         SpawnStar();
     }
 
-    private void SpawnBlackHole()
+   /* private void SpawnBlackHole()
     {
         tmpPos = new Vector3(Random.Range(screenBounds.x * 2, screenBounds.x * 5), Random.Range(-screenBounds.y, screenBounds.y), -1);
         GameObject gb= Instantiate(Resources.Load("blackHole"), tmpPos, Quaternion.identity) as GameObject;
-    }
+    }*/
 
     private void SpawnAsteroid()
     {
@@ -59,7 +59,7 @@ public class gameManager : MonoBehaviour
     {
         nbAst=GameObject.FindGameObjectsWithTag("Enemy").Length;
         nbStar = GameObject.FindGameObjectsWithTag("Star").Length;
-        nbBlackHole = GameObject.FindGameObjectsWithTag("BlackHole").Length;
+      //  nbBlackHole = GameObject.FindGameObjectsWithTag("BlackHole").Length;
 
         int shootingStarRatio = Random.Range(0, 200);
         if (shootingStarRatio == 10)
@@ -75,10 +75,10 @@ public class gameManager : MonoBehaviour
         {
             SpawnStar();
         }
-        if (nbBlackHole < limitBlackHole && int.Parse(GameObject.FindWithTag("scoreLabel").GetComponent<Text>().text) > 2)
+    /*    if (nbBlackHole < limitBlackHole && int.Parse(GameObject.FindWithTag("scoreLabel").GetComponent<Text>().text) > 2)
         {
             SpawnBlackHole();
-        }
+        }*/
     }
 
     void ShootingStarGo()
