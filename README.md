@@ -1,2 +1,4 @@
 # Star-Cleaner
-this is my game project : Star Cleaner 
+this is m game project : Star Cleaner 
+made in C# with Unity
+
